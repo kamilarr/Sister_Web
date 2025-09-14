@@ -2,6 +2,8 @@
 session_start();
 include "config.php";
 
+$redirect = $_GET['redirect'] ?? ($_POST['redirect'] ?? "webA");
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -13,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['username'] = $user['username'];
 
-        $redirect = $_GET['redirect'] ?? "webA";
+        // redirect ke web tujuan
         header("Location: http://localhost:8080/$redirect/");
         exit;
     } else {
@@ -39,6 +41,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php } ?>
 
         <form method="POST" class="space-y-5">
+            <!-- simpan redirect agar tetap kebawa -->
+            <input type="hidden" name="redirect" value="<?= htmlspecialchars($redirect) ?>">
+
             <div>
                 <label class="block text-sm font-medium text-amber-900">Username</label>
                 <input type="text" name="username" required
