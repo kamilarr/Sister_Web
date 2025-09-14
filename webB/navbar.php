@@ -4,31 +4,27 @@
     <div class="flex justify-between items-center h-16 flex-wrap">
       
       <!-- Logo -->
-      <a href="index.php" class="text-2xl font-bold tracking-wide hover:text-amber-100 transition-colors">
+      <a href="webB/index.php" class="text-2xl font-bold tracking-wide hover:text-amber-100 transition-colors">
         Manajemen Perkuliahan
       </a>
 
       <!-- Menu -->
       <div class="flex flex-wrap space-x-4 items-center">
-        <a href="index.php"
+        <a href="webB/index.php"
            class="hover:text-amber-100 transition-colors <?php echo $current=='index.php' ? 'font-bold' : ''; ?>">
            Dashboard
         </a>
-        <a href="dosen.php"
+        <a href="webB/dosen.php"
            class="hover:text-amber-100 transition-colors <?php echo $current=='dosen.php' ? 'font-bold' : ''; ?>">
            Dosen
         </a>
-        <a href="mahasiswa.php"
+        <a href="webB/mahasiswa.php"
            class="hover:text-amber-100 transition-colors <?php echo $current=='mahasiswa.php' ? 'font-bold' : ''; ?>">
            Mahasiswa
         </a>
-        <a href="matkul.php"
+        <a href="webB/matkul.php"
            class="hover:text-amber-100 transition-colors <?php echo $current=='matkul.php' ? 'font-bold' : ''; ?>">
            Mata Kuliah
-        </a>
-        <a href="perkuliahan.php"
-           class="hover:text-amber-100 transition-colors <?php echo $current=='perkuliahan.php' ? 'font-bold' : ''; ?>">
-           Perkuliahan
         </a>
         <a href="/sso/logout.php"
            class="bg-white text-amber-700 px-4 py-2 rounded-lg hover:bg-amber-100 transition-colors font-semibold mt-2 sm:mt-0">
