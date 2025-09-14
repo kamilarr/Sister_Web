@@ -1,37 +1,78 @@
 <?php
-session_start();
-if (!isset($_SESSION['user_id'])) {
-    header("Location: http://localhost:8080/sso/login.php?redirect=webB");
-    exit;
-}
-include "config.php";
-
-$result = $conn->query("SELECT k.id, m.nama as nama_mhs, d.nama as nama_dosen, mat.nama_matkul, k.nilai 
-    FROM kuliah k 
-    JOIN mhs m ON k.nim=m.nim 
-    JOIN dosen d ON k.nip=d.nip 
-    JOIN matkul mat ON k.kode_matkul=mat.kode_matkul");
+require_once "check_auth.php";
+include "config.php"; // koneksi ke db_webB
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Web B - Perkuliahan</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - WebB</title>
+  <link rel="stylesheet" href="/public/output.css">
 </head>
-<body>
-    <h2>Halo, <?php echo $_SESSION['username']; ?>! Selamat datang di Web B (Perkuliahan)</h2>
-    <a href="http://localhost:8080/sso/logout.php">Logout</a>
-    <h3>Data Perkuliahan</h3>
-    <table border="1">
-        <tr><th>ID</th><th>Mahasiswa</th><th>Dosen</th><th>Mata Kuliah</th><th>Nilai</th></tr>
-        <?php while($row = $result->fetch_assoc()) { ?>
-        <tr>
-            <td><?= $row['id'] ?></td>
-            <td><?= $row['nama_mhs'] ?></td>
-            <td><?= $row['nama_dosen'] ?></td>
-            <td><?= $row['nama_matkul'] ?></td>
-            <td><?= $row['nilai'] ?></td>
-        </tr>
-        <?php } ?>
-    </table>
+<body class="bg-amber-50">
+
+  <?php include "navbar.php"; ?>
+
+  <!-- ✅ Hero Section -->
+  <section class="relative w-full h-64 md:h-80 lg:h-96">
+    <!-- Gambar Latar -->
+    <img src="/public/hero.jpg" alt="Informatics Banner"
+         class="w-full h-full object-cover">
+    <!-- Overlay gelap tipis agar teks lebih terbaca -->
+    <div class="absolute inset-0 bg-black/60"></div>
+    <!-- Teks di tengah -->
+    <div class="absolute inset-0 flex items-center justify-center">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white drop-shadow-lg text-center">
+        Welcome to Informatics's Dashboard
+      </h1>
+    </div>
+  </section>
+  <!-- ✅ End Hero -->
+
+  <main class="max-w-7xl mx-auto p-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Card Data Dosen -->
+      <div class="bg-white rounded-xl shadow hover:shadow-lg transition-shadow p-6 text-center">
+        <h2 class="text-xl font-semibold text-amber-700 mb-2">Data Dosen</h2>
+        <p class="text-gray-600">Lihat dan kelola data dosen</p>
+        <a href="dosen.php"
+           class="mt-4 inline-block bg-amber-700 text-white px-4 py-2 rounded-lg hover:bg-amber-800 transition-colors">
+          Kelola
+        </a>
+      </div>
+
+      <!-- Card Data Mahasiswa -->
+      <div class="bg-white rounded-xl shadow hover:shadow-lg transition-shadow p-6 text-center">
+        <h2 class="text-xl font-semibold text-amber-700 mb-2">Data Mahasiswa</h2>
+        <p class="text-gray-600">Lihat dan kelola data mahasiswa</p>
+        <a href="mahasiswa.php"
+           class="mt-4 inline-block bg-amber-700 text-white px-4 py-2 rounded-lg hover:bg-amber-800 transition-colors">
+          Kelola
+        </a>
+      </div>
+
+      <!-- Card Mata Kuliah -->
+      <div class="bg-white rounded-xl shadow hover:shadow-lg transition-shadow p-6 text-center">
+        <h2 class="text-xl font-semibold text-amber-700 mb-2">Data Mata Kuliah</h2>
+        <p class="text-gray-600">Lihat dan kelola data mata kuliah</p>
+        <a href="matkul.php"
+           class="mt-4 inline-block bg-amber-700 text-white px-4 py-2 rounded-lg hover:bg-amber-800 transition-colors">
+          Kelola
+        </a>
+      </div>
+
+      <!-- Card Perkuliahan -->
+      <div class="bg-white rounded-xl shadow hover:shadow-lg transition-shadow p-6 text-center">
+        <h2 class="text-xl font-semibold text-amber-700 mb-2">Data Perkuliahan</h2>
+        <p class="text-gray-600">Lihat dan kelola data perkuliahan</p>
+        <a href="perkuliahan.php"
+           class="mt-4 inline-block bg-amber-700 text-white px-4 py-2 rounded-lg hover:bg-amber-800 transition-colors">
+          Kelola
+        </a>
+      </div>
+    </div>
+  </main>
+
 </body>
 </html>
