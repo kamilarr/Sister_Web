@@ -12,6 +12,8 @@ if (isset($_GET['delete'])) {
 
 // READ: ambil semua buku
 $result = $conn->query("SELECT * FROM books");
+$base = '/webA/'; // untuk link internal
+$current = basename($_SERVER['PHP_SELF']);
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -23,9 +25,25 @@ $result = $conn->query("SELECT * FROM books");
 <body class="bg-amber-50 flex flex-col min-h-screen">
 
     <!-- Navbar -->
-    <nav class="bg-amber-800 text-white px-6 py-4 flex justify-between items-center shadow-md">
-        <h1 class="text-xl font-bold tracking-wide">PERPUSTAKAAN</h1>
-        <a href="http://localhost:8080/sso/logout.php" class="hover:underline text-sm font-medium">Logout</a>
+    <nav class="bg-amber-800 text-white shadow-md">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16 flex-wrap">
+          
+          <!-- Logo / Judul -->
+          <a href="<?= $base ?>index.php" class="text-2xl font-bold tracking-wide hover:text-amber-100 transition-colors">
+            Perpustakaan
+          </a>
+
+          <!-- Menu -->
+          <div class="flex flex-wrap space-x-4 items-center">
+            <a href="http://localhost:8080/sso/logout.php?redirect=webA"
+               class="bg-white text-amber-700 px-4 py-2 rounded-lg hover:bg-amber-100 transition-colors font-semibold mt-2 sm:mt-0">
+               Logout
+            </a>
+          </div>      
+
+        </div>
+      </div>
     </nav>
 
     <!-- Hero Section -->
