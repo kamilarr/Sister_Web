@@ -1,6 +1,7 @@
 <?php
 require_once "check_auth.php";
-include "config.php"; // koneksi ke db_webB
+include "config.php"; 
+$base = '/webB/';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,7 +37,7 @@ include "config.php"; // koneksi ke db_webB
       <div class="bg-white rounded-xl shadow hover:shadow-lg transition-shadow p-6 text-center">
         <h2 class="text-xl font-semibold text-amber-700 mb-2">Data Dosen</h2>
         <p class="text-gray-600">Lihat dan kelola data dosen</p>
-        <a href="dosen.php"
+        <a href="<?= $base ?>dosen.php"
            class="mt-4 inline-block bg-amber-700 text-white px-4 py-2 rounded-lg hover:bg-amber-800 transition-colors">
           Kelola
         </a>
@@ -46,7 +47,7 @@ include "config.php"; // koneksi ke db_webB
       <div class="bg-white rounded-xl shadow hover:shadow-lg transition-shadow p-6 text-center">
         <h2 class="text-xl font-semibold text-amber-700 mb-2">Data Mahasiswa</h2>
         <p class="text-gray-600">Lihat dan kelola data mahasiswa</p>
-        <a href="mahasiswa.php"
+        <a href="<?= $base ?>mahasiswa.php"
            class="mt-4 inline-block bg-amber-700 text-white px-4 py-2 rounded-lg hover:bg-amber-800 transition-colors">
           Kelola
         </a>
@@ -56,7 +57,7 @@ include "config.php"; // koneksi ke db_webB
       <div class="bg-white rounded-xl shadow hover:shadow-lg transition-shadow p-6 text-center">
         <h2 class="text-xl font-semibold text-amber-700 mb-2">Data Mata Kuliah</h2>
         <p class="text-gray-600">Lihat dan kelola data mata kuliah</p>
-        <a href="matkul.php"
+        <a href="<?= $base ?>matkul.php"
            class="mt-4 inline-block bg-amber-700 text-white px-4 py-2 rounded-lg hover:bg-amber-800 transition-colors">
           Kelola
         </a>
@@ -66,7 +67,7 @@ include "config.php"; // koneksi ke db_webB
       <div class="bg-white rounded-xl shadow hover:shadow-lg transition-shadow p-6 text-center">
         <h2 class="text-xl font-semibold text-amber-700 mb-2">Data Perkuliahan</h2>
         <p class="text-gray-600">Lihat dan kelola data perkuliahan</p>
-        <a href="perkuliahan.php"
+        <a href="<?= $base ?>perkuliahan.php"
            class="mt-4 inline-block bg-amber-700 text-white px-4 py-2 rounded-lg hover:bg-amber-800 transition-colors">
           Kelola
         </a>
