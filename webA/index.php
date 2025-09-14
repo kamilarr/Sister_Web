@@ -1,10 +1,5 @@
 <?php
-session_start();
-if (!isset($_SESSION['user_id'])) {
-    header("Location: http://localhost:8080/sso/login.php?redirect=webA");
-    exit;
-}
-
+require_once "check_auth.php";
 include "config.php";
 
 // Ambil semua buku
@@ -25,7 +20,7 @@ if (isset($_GET['delete'])) {
     <title>Perpustakaan</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gradient-to-br from-white to-amber-50 min-h-screen flex flex-col">
+<body class="bg-amber-50 flex flex-col min-h-screen">
 
     <!-- Navbar -->
     <nav class="bg-amber-800 text-white px-6 py-4 flex justify-between items-center shadow-md">
@@ -34,7 +29,23 @@ if (isset($_GET['delete'])) {
            class="hover:underline text-sm font-medium">Logout</a>
     </nav>
 
-    <main class="flex-1 p-8">
+    <!-- ✅ Hero Section -->
+    <section class="relative w-full h-64 md:h-80 lg:h-96">
+        <!-- Gambar Latar -->
+        <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=1920&auto=format&fit=crop" alt="Library Banner"
+             class="w-full h-full object-cover">
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-black/50"></div>
+        <!-- Teks -->
+        <div class="absolute inset-0 flex items-center justify-center">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white drop-shadow-lg text-center">
+                Welcome to Perpustakaan
+            </h1>
+        </div>
+    </section>
+    <!-- ✅ End Hero -->
+
+    <main class="flex-1 p-8 max-w-7xl mx-auto w-full">
         <h2 class="text-2xl font-bold text-amber-900 mb-6">
             Data Perpustakaan
         </h2>
