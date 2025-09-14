@@ -32,7 +32,7 @@ $base = '/webB/';
   <!-- ✅ End Hero -->
 
   <main class="max-w-7xl mx-auto p-8">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6">
       <!-- Card Data Dosen -->
       <div class="bg-white rounded-xl shadow hover:shadow-lg transition-shadow p-6 text-center">
         <h2 class="text-xl font-semibold text-amber-700 mb-2">Data Dosen</h2>
@@ -58,16 +58,6 @@ $base = '/webB/';
         <h2 class="text-xl font-semibold text-amber-700 mb-2">Data Mata Kuliah</h2>
         <p class="text-gray-600">Lihat dan kelola data mata kuliah</p>
         <a href="<?= $base ?>matkul.php"
-           class="mt-4 inline-block bg-amber-700 text-white px-4 py-2 rounded-lg hover:bg-amber-800 transition-colors">
-          Kelola
-        </a>
-      </div>
-
-      <!-- Card Perkuliahan -->
-      <div class="bg-white rounded-xl shadow hover:shadow-lg transition-shadow p-6 text-center">
-        <h2 class="text-xl font-semibold text-amber-700 mb-2">Data Perkuliahan</h2>
-        <p class="text-gray-600">Lihat dan kelola data perkuliahan</p>
-        <a href="<?= $base ?>perkuliahan.php"
            class="mt-4 inline-block bg-amber-700 text-white px-4 py-2 rounded-lg hover:bg-amber-800 transition-colors">
           Kelola
         </a>
