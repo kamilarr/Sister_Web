@@ -25,7 +25,7 @@ $current = basename($_SERVER['PHP_SELF']);
 <body class="bg-amber-50 flex flex-col min-h-screen">
 
     <!-- Navbar -->
-    <nav class="bg-amber-800 text-white shadow-md">
+    <nav class="bg-amber-700 text-white shadow-md">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16 flex-wrap">
           
